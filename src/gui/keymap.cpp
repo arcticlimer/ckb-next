@@ -330,6 +330,20 @@ static const Key KatarKeys[] = {
 };
 #define KEYCOUNT_KATAR  (sizeof(KatarKeys) / sizeof(Key))
 
+static const Key KatarPROKeys[] = {
+    // TODO: Probably need to change some numbers here
+    {0, "Left Mouse",       "mouse1",    7,  4, 14, 18, false, true},
+    {0, "Right Mouse",      "mouse2",   28,  4, 14, 18, false, true},
+    {0, "Middle Mouse",     "mouse3",   22,  9,  7,  7, false, true},
+    {0, "Wheel Up",         "wheelup",  22,  5,  7,  5, false, true},
+    {0, "Wheel Down",       "wheeldn",  22, 15,  7,  5, false, true},
+    {0, "DPI Cycle",        "dpiup",    22, 19,  6, 12, false, true},
+    {0, "DPI Wheel Light",  "dpi",      22,  3,  8, 14, true,  false},
+    {0, "Forward",          "mouse4",    3, 24,  5, 10, false, true},
+    {0, "Back",             "mouse5",    3, 33,  5, 10, false, true}
+};
+#define KEYCOUNT_KATAR_PRO  (sizeof(KatarPROKeys) / sizeof(Key))
+
 // Katar PRO XT
 static const Key KatarPROXTKeys[] = {
     {0, "Left Mouse",       "mouse1",    7,  4, 14, 18, false, true},
@@ -940,6 +954,16 @@ static QHash<QString, Key> getMap(KeyMap::Model model, KeyMap::Layout layout){
         }
         break;
     }
+    case KeyMap::KATARPRO:{
+        // Katar PRO
+        for(const Key* key = KatarPROKeys; key < KatarPROKeys + KEYCOUNT_KATAR_PRO; key++){
+            Key translatedKey = *key;
+            translatedKey.x += translatedKey.width / 2;
+            translatedKey.y += translatedKey.height / 2;
+            map[key->name] = translatedKey;
+        }
+        break;
+    }
     case KeyMap::KATARPROXT:{
         // Katar
         for(const Key* key = KatarPROXTKeys; key < KatarPROXTKeys + KEYCOUNT_KATAR_PROXT; key++){
@@ -1264,6 +1288,8 @@ KeyMap::Model KeyMap::getModel(const QString& name){
         return GLAIVE;
     if(lower == "katar")
         return KATAR;
+    if(lower == "katarpro")
+        return KATARPRO;
     if(lower == "katarproxt")
         return KATARPROXT;
     if(lower == "darkcore")
@@ -1325,6 +1351,8 @@ QString KeyMap::getModel(KeyMap::Model model){
         return "glaive";
     case KATAR:
         return "katar";
+    case KATARPRO:
+        return "katarpro";
     case KATARPROXT:
         return "katarproxt";
     case DARKCORE:
@@ -1391,6 +1419,7 @@ int KeyMap::modelWidth(Model model){
     case HARPOON:
     case GLAIVE:
     case KATAR:
+    case KATARPRO:
     case KATARPROXT:
     case DARKCORE:
     case POLARIS:
@@ -1430,6 +1459,7 @@ int KeyMap::modelHeight(Model model){
     case HARPOON:
     case GLAIVE:
     case KATAR:
+    case KATARPRO:
     case KATARPROXT:
     case DARKCORE:
     case POLARIS:

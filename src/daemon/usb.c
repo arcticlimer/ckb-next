@@ -29,6 +29,7 @@ const dpi_list mouse_dpi_list[] = {
     { P_HARPOON, 6000 },
     { P_HARPOON_PRO, 12000 },
     { P_KATAR_PRO_XT, 18000 },
+    { P_KATAR_PRO, 12400 },
     { P_KATAR, 8000 },
     { P_IRONCLAW, 18000 },
     { P_NIGHTSWORD, 18000},
@@ -90,6 +91,7 @@ const device_desc models[] = {
     { V_CORSAIR, P_HARPOON, },
     { V_CORSAIR, P_HARPOON_PRO, },
     { V_CORSAIR, P_KATAR, },
+    { V_CORSAIR, P_KATAR_PRO, },
     { V_CORSAIR, P_KATAR_PRO_XT, },
     { V_CORSAIR, P_IRONCLAW, },
     { V_CORSAIR, P_NIGHTSWORD, },
@@ -209,6 +211,8 @@ const char* product_str(ushort product){
         return "harpoon";
     if(product == P_KATAR_PRO_XT)
         return "katarproxt";
+    if(product == P_KATAR_PRO)
+        return "katarpro";
     if(product == P_GLAIVE)
         return "glaive";
     if(product == P_GLAIVE_PRO)

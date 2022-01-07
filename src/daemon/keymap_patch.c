@@ -69,6 +69,20 @@ keypatch katarproxtpatch[] = {
 };
 #define KATARPROXTPATCH_LEN sizeof(katarproxtpatch)/sizeof(*katarproxtpatch)
 
+keypatch katarpropatch[] = {
+    { 237, "dpi",  LED_MOUSE,     KEY_NONE },
+    { 238, NULL,   0,             KEY_NONE },
+    { 239, NULL,   0,             KEY_NONE },
+    { 240, NULL,   0,             KEY_NONE },
+    { 241, NULL,   0,             KEY_NONE },
+    { 242, NULL,   0,             KEY_NONE },
+    { 243, NULL,   0,             KEY_NONE },
+    { 244, NULL,   0,             KEY_NONE },
+    { 245, NULL,   0,             KEY_NONE },
+    { 246, NULL,   0,             KEY_NONE },
+};
+#define KATARPROPATCH_LEN sizeof(katarpropatch)/sizeof(*katarpropatch)
+
 keypatch k95legacypatch[] = {
     { 111, "lghtpgm",  0,     KEY_CORSAIR }, // Lighting program key for legacy devices
 };
@@ -84,6 +98,7 @@ keypatches mappatches[] = {
     { V_CORSAIR, P_IRONCLAW_W_U, icwpatch,       ICWPATCH_LEN },
     { V_CORSAIR, P_HARPOON_WL_U, harpoonwlpatch, HARPOONWLPATCH_LEN },
     { V_CORSAIR, P_KATAR_PRO_XT, katarproxtpatch,KATARPROXTPATCH_LEN },
+    { V_CORSAIR, P_KATAR_PRO,    katarpropatch,  KATARPROPATCH_LEN },
     { V_CORSAIR, P_K95_LEGACY,   k95legacypatch, K95LEGACYPATCH_LEN },
 };
 #define KEYPATCHES_LEN sizeof(mappatches)/sizeof(*mappatches)
