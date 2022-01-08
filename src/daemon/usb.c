@@ -209,10 +209,8 @@ const char* product_str(ushort product){
         return "scimitar";
     if(product == P_HARPOON || product == P_HARPOON_PRO)
         return "harpoon";
-    if(product == P_KATAR_PRO_XT)
-        return "katarproxt";
-    if(product == P_KATAR_PRO)
-        // Katar PRO XT and Katar PRO works the same, so we just do that
+    // Katar PRO XT and Katar PRO works the same, so we just do that
+    if(product == P_KATAR_PRO_XT || product == P_KATAR_PRO)
         return "katarproxt";
     if(product == P_GLAIVE)
         return "glaive";
